@@ -1,0 +1,61 @@
+<div>
+  <mat-toolbar color="primary">
+    <button
+      type="button"
+      aria-label="Toggle sidenav"
+      mat-icon-button
+      (click)="drawer.toggle()"
+      *ngIf="isHandset$ | async">
+      <mat-icon aria-label="Side nav Toggle icon">menu</mat-icon>
+    </button>
+    <span>Gestion des utilisateurs</span>
+
+    <span class="fill-remaining-space"></span>
+
+    <button mat-button (click)="logout()">
+      <mat-icon>exit_to_app</mat-icon>
+      <span>Déconnexion</span>
+    </button>
+  </mat-toolbar>
+
+  <mat-sidenav-container class="sidenav-container">
+    <mat-sidenav #drawer class="sidenav" fixedInViewport
+                 [fixedTopGap]="64"
+                 [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+                 [mode]="(isHandset$ | async) ? 'over' : 'side'"
+                 [opened]="(isHandset$ | async) === false">
+      <mat-toolbar>Menu</mat-toolbar>
+      <mat-nav-list>
+        <h2 matSubheader>Utilisateurs</h2>
+        <a mat-list-item
+           routerLink="/users/dashboard"
+           routerLinkActive="list-item-active"
+        >
+          <mat-icon>dashboard</mat-icon>
+          Dashboard
+        </a>
+        <a mat-list-item
+           routerLink="/users/list"
+           routerLinkActive="list-item-active"
+        >
+          <mat-icon>list</mat-icon>
+          Utilisateurs
+        </a>
+
+        <mat-divider></mat-divider>
+
+        <h2 matSubheader>Autre sous-menu</h2>
+        <a mat-list-item
+        >
+          <mat-icon>save_alt</mat-icon>
+          Un autre lien
+        </a>
+      </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content>
+      <div class="maint_content">
+        <router-outlet></router-outlet>
+      </div>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</div>
