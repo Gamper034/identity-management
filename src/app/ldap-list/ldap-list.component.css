@@ -6,6 +6,9 @@ table{
   display: flex;
   align-content: center;
   align-items: center;
+  justify-content: space-between;
   margin: 12px;
   width: 90%;
 }
+
+

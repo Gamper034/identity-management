@@ -1,10 +1,10 @@
 <div class="mat-elevation-z8">
     <div class="toolbar-filter">
-        <mat-form-field style="width:40%">
+        <mat-form-field style="width:40%;" class="search-filter">
             <mat-label>Nom complet</mat-label>
             <input matInput (keyup)="applyFilter($event)" placeholder="Entrez un nom">
         </mat-form-field>
-        &nbsp;&nbsp;
+        <!-- &nbsp;&nbsp; -->
         <mat-slide-toggle class="slide_desactive" [checked]="unactiveSelected"
                            (change)="unactiveChanged($event)">
             Utilisateurs désactivés uniquement
