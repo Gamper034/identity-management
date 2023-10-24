@@ -43,7 +43,10 @@ export class LdapListComponent implements OnInit {
   // }
 
   filterPredicate(data: UserLdap, filter: string): boolean {
-    return !filter || data.nomComplet.toLowerCase().startsWith(filter);
+    const filterValue = filter.trim().toLowerCase();
+    const nomComplet = data.nomComplet.toLowerCase();
+    const employeNumero = data.employeNumero.toString().toLowerCase();
+    return !filterValue || nomComplet.toLowerCase().startsWith(filter) || employeNumero.startsWith(filter);
   }
 
   applyFilter($event: KeyboardEvent): void {

@@ -1,8 +1,12 @@
 <div class="mat-elevation-z8">
     <div class="toolbar-filter">
-        <mat-form-field style="width:40%;" class="search-filter">
+        <mat-form-field style="width:15%;">
             <mat-label>Nom complet</mat-label>
             <input matInput (keyup)="applyFilter($event)" placeholder="Entrez un nom">
+        </mat-form-field>
+        <mat-form-field style="width:15%;">
+            <mat-label>Numéro</mat-label>
+            <input matInput (keyup)="applyFilter($event)" placeholder="Entrez un numéro">
         </mat-form-field>
         <!-- &nbsp;&nbsp; -->
         <mat-slide-toggle class="slide_desactive" [checked]="unactiveSelected"
