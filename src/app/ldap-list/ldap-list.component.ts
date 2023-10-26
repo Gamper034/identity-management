@@ -3,8 +3,10 @@ import { MatTable } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import {UserLdap} from "../model/user-ldap";
-import {LDAP_USERS} from "../model/ldap-mock-data";
+// import {LDAP_USERS} from "../model/ldap-mock-data";
 import { MatSlideToggleChange } from '@angular/material/slide-toggle';
+import { UsersService } from '../service/users.service';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -19,7 +21,7 @@ export class LdapListComponent implements OnInit {
   //Permet d'injecter 'mat-paginator' dans l'attribut paginator. L'attribut paginator de la classe LdapListComponent est lié à la balise HTML mat-paginator dans la vue
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator | null;
 
-  constructor() {
+  constructor(private usersService: UsersService, private router: Router) {
     this.paginator = null;
   }
 
@@ -56,11 +58,13 @@ export class LdapListComponent implements OnInit {
 
   
   private getUsers(): void {
-    if (this.unactiveSelected) {
-      this.dataSource.data = LDAP_USERS.filter(user => !user.active);
-    } else {
-      this.dataSource.data = LDAP_USERS;
-    }
+    this.usersService.getUsers().subscribe(users => {
+      if (this.unactiveSelected) {
+        this.dataSource.data = users.filter(user => !user.active);
+      } else {
+        this.dataSource.data = users;
+      }
+    });
   }
 
   unactiveChanged($event: MatSlideToggleChange): void {
