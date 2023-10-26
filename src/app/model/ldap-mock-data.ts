@@ -42,17 +42,6 @@ export const LDAP_USERS: UserLdap[] = [
     dateEmbauche: '2020-03-03',
     publisherId: 2,
     active: false,
-  }
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
+  },
+
   ]
