@@ -2,13 +2,15 @@
     <button mat-icon-button (click)="goToLdap()">
         <mat-icon aria-label="Accueil">arrow_back</mat-icon>
     </button>
-    Edition d'un utilisateur
+    {{ addForm ? 'Ajouter un utilisateur' : 'Modifier un utilisateur' }}
 </h3>
 
 <section class="loading" *ngIf="processLoadRunning">
     <mat-spinner diameter="25" ></mat-spinner>
     <span>&nbsp; En cours de chargement ...</span>
 </section>
+
+<app-alert *ngIf="errorMessage.length>0" [type]="'danger'">{{ errorMessage }}</app-alert>
 
 <form class="user-form" *ngIf="!processLoadRunning"
         [formGroup]="userForm"
@@ -58,16 +60,16 @@
         <tr>
             <td>
                 <mat-form-field class="user-full-width">
-                    <input matInput type="password" placeholder="Mot de passe" id="password" formControlName="password" 
+                    <input matInput type="password" [placeholder]="passwordPlaceHolder" id="password" formControlName="password" 
                     />
-                    <mat-error>Les mots de passes doivent être identiques</mat-error>
+                    <mat-error>{{getErrorMessage()}}</mat-error>
                 </mat-form-field>
             </td>
             <td>
                 <mat-form-field class="user-full-width">
                     <input matInput type="password" placeholder="Vérification du mot de passe" id="confirmPassword" formControlName="confirmPassword" 
                     />
-                    <mat-error>Les mots de passes doivent être identiques</mat-error>
+                    <mat-error>{{getErrorMessage()}}</mat-error>
                 </mat-form-field>
             </td>
         </tr>
