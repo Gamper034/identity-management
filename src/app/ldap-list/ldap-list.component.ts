@@ -25,6 +25,14 @@ export class LdapListComponent implements OnInit {
     this.paginator = null;
   }
 
+  addUser() {
+    this.router.navigate(['user/add']).then((e) => {
+      if (!e) {
+        console.error('Navigation has failed');
+      }
+    });
+  }
+  
   ngOnInit(): void {
     this.dataSource.paginator = this.paginator;
     this.dataSource.filterPredicate = (data: UserLdap, filter: string) => this.filterPredicate(data, filter);
@@ -80,13 +88,7 @@ export class LdapListComponent implements OnInit {
     });
   }
 
-  addUser() {
-    this.router.navigate(['user/add']).then((e) => {
-      if (!e) {
-        console.error('Navigation has failed');
-      }
-    });
-  }
+
 
 
 
