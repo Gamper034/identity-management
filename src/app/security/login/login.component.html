@@ -1,0 +1,23 @@
+<div class="signin-centent">
+    <mat-card>
+        <mat-card-title>Gestion des utilisateurs</mat-card-title>
+        <mat-card-content>
+            <form [formGroup]="form" (ngSubmit)="onSubmit()">
+                <mat-form-field class="full-width-input">
+                    <input matInput placeholder="User" formControlName="userName" required>
+                    <mat-error *ngIf="isFieldInvalid('password')">
+                        Mot de passe incorrect
+                    </mat-error>
+                </mat-form-field>
+
+                <button mat-raised-button color="primary"
+                        [disabled]="processRunning || !form.valid">
+                    <mat-icon *ngIf="processRunning">
+                        <mat-spinner diameter="16"></mat-spinner>
+                    </mat-icon>
+                    Connexion
+                </button>
+            </form>
+        </mat-card-content>
+    </mat-card>
+</div>

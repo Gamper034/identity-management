@@ -20,12 +20,13 @@ import { LdapManagementModule } from './ldap-management/ldap-management.module';
 import { HttpClientModule } from '@angular/common/http';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryUsersService } from './service/in-memory-users.service';
+import { LoginComponent } from './security/login/login.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     PageNotFoundComponent,
-    NavbarComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,

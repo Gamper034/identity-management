@@ -5,11 +5,14 @@ import {PageNotFoundComponent} from "./page-not-found/page-not-found.component";
 import { LdapDetailsComponent } from './ldap-management/ldap-details/ldap-details.component';
 import { LdapAddComponent } from './ldap-management/ldap-add/ldap-add.component';
 import { LdapEditComponent } from './ldap-management/ldap-edit/ldap-edit.component';
+import { LoginComponent } from './security/login/login.component';
 
 const routes: Routes = [
   // {path: 'users/list', component: LdapListComponent},
   // {path: 'user/add', component: LdapAddComponent},
   // {path: 'user/:id', component: LdapEditComponent},
+  {path: 'login', component: LoginComponent},
+  {path: '', redirectTo: 'users/list', pathMatch: 'full'},
   {path: '**', component: PageNotFoundComponent},
   
 ];

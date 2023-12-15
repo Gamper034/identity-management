@@ -12,6 +12,7 @@ import { LdapListComponent } from './ldap-list/ldap-list.component';
 import { HttpClientModule } from '@angular/common/http';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryUsersService } from '../service/in-memory-users.service';
+import { NavbarComponent } from './navbar/navbar.component';
 
 @NgModule({
 
@@ -20,6 +21,7 @@ import { InMemoryUsersService } from '../service/in-memory-users.service';
     LdapAddComponent,
     LdapEditComponent,
     AlertComponent,
+    NavbarComponent
   ],
   imports: [
     CommonModule,
