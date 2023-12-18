@@ -48,7 +48,7 @@ export class AuthenticationService {
     sessionStorage.removeItem('id_token');
   }
 
-  loginWithRole(username, password, role): Observable<AuthenticationResponse> {
+  loginWithRole(username:string, password:string, role:string): Observable<AuthenticationResponse> {
   // loginWithRole(): Observable<AuthenticationResponse> {
     /*
     //le vrai code

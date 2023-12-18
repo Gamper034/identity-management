@@ -5,8 +5,14 @@
             <form [formGroup]="form" (ngSubmit)="onSubmit()">
                 <mat-form-field class="full-width-input">
                     <input matInput placeholder="User" formControlName="userName" required>
+                    <mat-error *ngIf="isFieldInvalid('userName')">
+                        Login Incorrect
+                    </mat-error>
+                </mat-form-field>
+                <mat-form-field class="full-width-input">
+                    <input matInput type="password" placeholder="Password" formControlName="password" required>
                     <mat-error *ngIf="isFieldInvalid('password')">
-                        Mot de passe incorrect
+                        Mot de passe Incorrect
                     </mat-error>
                 </mat-form-field>
 
